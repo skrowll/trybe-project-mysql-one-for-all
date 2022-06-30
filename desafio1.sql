@@ -121,6 +121,7 @@ INSERT INTO SpotifyClone.users (`user_name`, `user_age`, `plan_id`, `sign_date`)
 CREATE TABLE SpotifyClone.`follows`(
 	`user_id` INT NOT NULL,
 	`artist_id` INT NOT NULL,
+  CONSTRAINT PRIMARY KEY (`user_id`, `artist_id`),
 	FOREIGN KEY (`user_id`) REFERENCES SpotifyClone.users  (`user_id`),
 	FOREIGN KEY (`artist_id`) REFERENCES SpotifyClone.artists (`artist_id`)
 ) ENGINE = InnoDB;
@@ -153,6 +154,7 @@ CREATE TABLE SpotifyClone.`history`(
 	`user_id` INT NOT NULL,
 	`track_id` INT NOT NULL,
 	`reprodution_date` DATETIME NOT NULL,
+  CONSTRAINT PRIMARY KEY (`user_id`, `track_id`),
 	FOREIGN KEY (`user_id`) REFERENCES SpotifyClone.users (`user_id`),
 	FOREIGN KEY (`track_id`) REFERENCES SpotifyClone.tracks (`track_id`)
 ) ENGINE = InnoDB;
